@@ -79,10 +79,10 @@ do
      Console.WriteLine("Enter search criteria:");
      string name = Console.ReadLine();
 
-     int num = movieFile.Movies.Where(m => m.title.Contains(name)).Count();
-      Console.WriteLine($"There are {num} movies that contain {name}");
+     //int num = movieFile.Movies.Where(m => m.title.Contains(name)).Count();
 
-    var movieList = movieFile.Movies.Where(m => m.title.Contains(name));
+    var movieList = movieFile.Movies.Where(m => m.title.Contains(name, StringComparison.OrdinalIgnoreCase));
+    Console.WriteLine($"There are {movieList.Count()} movies that contain {name}");
     foreach(Movie m in movieList)
 {
     Console.WriteLine($"  {m.title}");
